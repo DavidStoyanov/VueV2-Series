@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>VueJS v2 Demo</title>
+
+    <script src="https://unpkg.com/vue"></script>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+</head>
+<body>
+
+    <div id="app">
+        <a v-bind:href="website">VueJs</a>
+        <a :href="website">VueJs</a>
+        <a v-html="getWebsiteTag(website)"></a>
+        <input type="text" :value="text">
+    </div>
+
+    <script src="./app.js"></script>
+
+</body>
+</html>

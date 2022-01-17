@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>VueJS v2 Demo</title>
+
+    <script src="https://unpkg.com/vue"></script>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+</head>
+<body>
+
+    <div id="app">
+        <h1>Dynamic CSS</h1>
+        <h2>Example 1</h2>
+        <div v-bind:class="{ available }">
+            <span v-on:click="available = !available">Taxi Driver</span>
+        </div>
+        <h2>Example 2</h2>
+        <button v-on:click="available = !available">available</button>
+        <button v-on:click="nearby = !nearby">nearby</button>
+        <div v-bind:class="taxiClasses">
+            <span>Taxi Driver</span>
+        </div>
+
+    </div>
+
+    <script src="./app.js"></script>
+
+</body>
+</html>

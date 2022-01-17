@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.layout {
+    margin: 20px auto;
+}
+
+button {
+    padding: 0.25rem 0.5rem;
+    margin: auto 0.3rem;
+    cursor: pointer;
+}
+
+button.disabled {
+    cursor: not-allowed;
+}
+
+#bag {
+    display: block;
+    width: 200px;
+    height: 500px;
+}
+
+.bag {
+    display: block;
+    position: absolute;
+    background-image: url("./img/bag.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 500px;
+}
+
+.bag-shadow {
+    background-image: url("./img/bag-burst.png");
+}
+
+#bag_health {
+    display: block;
+    position: relative;
+    width: 200px;
+    border: 2px solid #000;
+    overflow: hidden;
+}
+
+#bag_health > div {
+    display: block;
+    background-color: crimson;
+    height: 20px;
+}
+
+#bag_health > div > span {
+    display: block;
+    width: 200px;
+    height: 20px;
+    text-align: center;
+}
+
+#bag_health > div > span::after {
+    margin-left: 0.1rem;
+    content: '%';
+}
+
+#score {
+    flex-wrap: wrap;
+    width: 200px;
+}
+
+#score p {
+    display: block;
+    width: 100%;
+}
+
+#controls {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>VueJS v2 Demo</title>
+
+    <script src="https://unpkg.com/vue@2.6.12"></script>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+</head>
+<body>
+
+    <div id="vue_app_one">
+        <h2>{{ title }}</h2>
+        <p>{{ greed }}</p>
+    </div>
+
+    <div id="vue_app_two">
+        <h2>{{ title }}</h2>
+        <p>{{ greed }}</p>
+        <button v-on:click="changeTitle">Change app one Tittle</button>
+    </div>
+
+    <script src="./app.js"></script>
+
+</body>
+</html>

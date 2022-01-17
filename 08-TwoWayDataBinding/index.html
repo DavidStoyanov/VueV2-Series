@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>VueJS v2 Demo</title>
+
+    <script src="https://unpkg.com/vue"></script>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+</head>
+<body>
+
+    <div id="app">
+
+        <label>
+            Name:
+            <input type="text" v-model="name" value="">
+        </label>
+
+        <p>{{ name }}</p>
+
+        <label>
+            Age:
+            <input type="text" v-model="age" value="">
+        </label>
+
+        <p>{{ age }}</p>
+        
+    </div>
+
+    <script src="./app.js"></script>
+
+</body>
+</html>

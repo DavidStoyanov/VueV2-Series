@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>VueJS v2 Demo</title>
+
+    <script src="https://unpkg.com/vue"></script>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+</head>
+<body>
+
+    <div id="app">
+        <h1>Events</h1>
+        <p>{{ age }}</p>
+        <br>
+        <h3>{{ profile() }}</h3>
+        <button v-on:click="ageUp(1)">Age Up</button>
+        <button v-on:click="ageDown(1)">Age Down</button>
+        <button @dblclick="ageUp(10)">10 Ages Up</button>
+        <button @dblclick="ageDown(10)">10 Ages Down</button>
+        <br>
+        <br>
+        <div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
+    </div>
+
+    <script src="./app.js"></script>
+
+</body>
+</html>

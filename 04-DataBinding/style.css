@@ -1,0 +1,4 @@
+div#app > * {
+    display: block;
+    margin: 0.75rem 0rem;
+}
