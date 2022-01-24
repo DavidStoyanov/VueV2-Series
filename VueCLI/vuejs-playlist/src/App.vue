@@ -1,20 +1,18 @@
 <template>
   <div>
-    <h1>{{ title }}</h1> 
-    <items></items>
+    <app-header></app-header>
+    
   </div>
 </template>
 
 <script>
-import Items from './Items.vue'
-
 export default {
   components: {
-    'items': Items
+    
   },
   data() {
     return {
-      title: "Vue App"
+      
     }
   }
 }

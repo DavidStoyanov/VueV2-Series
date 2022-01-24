@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
-//import Items from './Items.vue'
 
-//Vue.component('items', Items);
+import Header from './components/Header.vue'
+
+Vue.component('app-header', Header);
 
 new Vue({
   el: '#app',
