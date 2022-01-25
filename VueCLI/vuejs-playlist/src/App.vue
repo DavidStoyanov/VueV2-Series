@@ -4,18 +4,20 @@
     <app-header></app-header>
     
     <main>
-    
+      <ninjas></ninjas>
     </main>
-
+    
     <app-footer></app-footer>
 
   </div>
 </template>
 
 <script>
+import Ninjas from './components/Ninjas.vue';
+
 export default {
   components: {
-    
+    'ninjas': Ninjas
   },
   data() {
     return {
@@ -26,6 +28,7 @@ export default {
 </script>
 
 <style>
+
   * {
     padding: 0;
     margin: 0;
