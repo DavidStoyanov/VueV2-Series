@@ -4,7 +4,7 @@
     <app-header></app-header>
     
     <main>
-      <ninjas></ninjas>
+      <ninjas v-bind:ninjas="listOfPeople"></ninjas>
     </main>
     
     <app-footer></app-footer>
@@ -21,7 +21,14 @@ export default {
   },
   data() {
     return {
-      
+      listOfPeople: [
+                {name: 'Ryu', speciality: 'Vue Components', show: false},
+                {name: 'Crystal', speciality: 'HTML Wizardry', show: false},
+                {name: 'Hitoshi', speciality: 'Click Events', show: false},
+                {name: 'Tango', speciality: 'Conditionals', show: false},
+                {name: 'Kami', speciality: 'Webpack', show: false},
+                {name: 'Yoshi', speciality: 'Data Diggin', show: false}
+            ]
     }
   }
 }
