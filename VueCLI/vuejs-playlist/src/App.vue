@@ -5,6 +5,8 @@
     
     <main>
       <ninjas v-bind:ninjas="listOfPeople"></ninjas>
+      <hr>
+      <ninjas v-bind:ninjas="listOfPeople"></ninjas>
     </main>
     
     <app-footer></app-footer>

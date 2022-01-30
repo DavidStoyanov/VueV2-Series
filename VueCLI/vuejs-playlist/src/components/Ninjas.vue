@@ -1,11 +1,17 @@
 <template>
   <div id="ninjas">
+    <h1 v-on:click="changeNinjaHeader">{{ header }}</h1>
     <ul>
       <li v-for="ninja in ninjas" v-bind:key="ninja.name" v-on:click="ninja.show = !ninja.show">
         <h2>{{ ninja.name }}</h2>
         <h3 v-show="ninja.show">{{ ninja.speciality }}</h3>
+        <div>
+          <button v-on:click="deleteNinja(ninja)">Delete</button>
+        </div>
       </li>
     </ul>
+    <button v-on:click="deleteFirst">Delete First</button>
+    <button v-on:click="deleteLast">Delete Last</button>
   </div>
 </template>
 
@@ -19,7 +25,24 @@ export default {
   },
   data() {
     return {
-      
+      header: "Ninjas"
+    }
+  },
+  methods: {
+    deleteFirst: function() {
+      this.ninjas.shift();
+    },
+    deleteLast: function() {
+      this.ninjas.pop();
+    },
+    deleteNinja: function(item) {
+      const index = this.ninjas.indexOf(item);
+      if (index !== -1) {
+        this.ninjas.splice(index, 1);
+      }
+    },
+    changeNinjaHeader: function() {
+      this.header = "New Ninja's Header"
     }
   }
 }
