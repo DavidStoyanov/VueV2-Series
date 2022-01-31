@@ -4,9 +4,9 @@
     <app-header></app-header>
     
     <main>
-      <ninjas v-bind:ninjas="listOfPeople"></ninjas>
+      <ninjas v-bind:ninjas="listOfPeople" v-bind:header="header" v-on:changeHeader="updateHeader($event)"></ninjas>
       <hr>
-      <ninjas v-bind:ninjas="listOfPeople"></ninjas>
+      <ninjas v-bind:ninjas="listOfPeople" v-bind:header="header" v-on:changeHeader="updateHeader($event)"></ninjas>
     </main>
     
     <app-footer></app-footer>
@@ -30,7 +30,13 @@ export default {
                 {name: 'Tango', speciality: 'Conditionals', show: false},
                 {name: 'Kami', speciality: 'Webpack', show: false},
                 {name: 'Yoshi', speciality: 'Data Diggin', show: false}
-            ]
+            ],
+      header: "Ninjas"
+    }
+  },
+  methods: {
+    updateHeader: function(newHeader) {
+      this.header = newHeader;
     }
   }
 }

@@ -21,11 +21,14 @@ export default {
     ninjas: {
       type: Array,
       required: true
+    },
+    header: {
+      type: String
     }
   },
   data() {
     return {
-      header: "Ninjas"
+      
     }
   },
   methods: {
@@ -42,7 +45,7 @@ export default {
       }
     },
     changeNinjaHeader: function() {
-      this.header = "New Ninja's Header"
+      this.$emit('changeHeader', "New Ninja's Header");
     }
   }
 }
