@@ -51,7 +51,26 @@ export default {
     updateAppHeader: function(header) {
       this.listOfPeopleHeader = header;
     }
-  }
+  },
+  beforeCreate() {
+    alert('beforeCreate')
+  },
+  created() {
+    alert('created')
+  },
+  beforeMount() {
+    alert('beforeMount')
+  },
+  mounted() {
+    alert('mounted')
+  },
+  beforeUpdate() {
+    alert('beforeCreate')
+  },
+  updated() {
+    alert('beforeCreate')
+  },
+  
 }
 </script>
 
