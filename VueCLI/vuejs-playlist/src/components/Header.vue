@@ -1,14 +1,28 @@
 <template>
   <header>
-    <h1>{{ title }}</h1>
+    <h1 v-on:click="changeTitle">{{ title }}</h1>
   </header>
 </template>
 
 <script>
+import { bus } from '../main';
+
 export default {
+  props: {
+    appTitle: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
-      title: 'Vue App'
+      title: this.appTitle
+    }
+  },
+  methods: {
+    changeTitle: function() {
+      this.title = 'Better Vue App';
+      bus.$emit('changeTitle', this.title);
     }
   }
 }

@@ -5,10 +5,35 @@
 </template>
 
 <script>
+import { bus } from '../main';
+
 export default {
+  props: {
+    appTitle: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
-      copyright: 'Copyright 2022 Vue App. All rights reserved.'
+      title: this.appTitle
+    }
+  },
+  created() {
+    bus.$on('changeTitle', (data) => {
+      this.title = data;
+    });
+  },
+  computed: {
+    copyright: function() {
+      let title = this.title;
+      if (title == undefined || title == null) {
+        title = '';
+      } else {
+        title = ' ' + title;
+      }
+
+      return `Copyright 2022${title}. All rights reserved.`;
     }
   }
 }

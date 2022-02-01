@@ -1,15 +1,27 @@
 <template>
   <div id="app">
     
-    <app-header></app-header>
+    <app-header v-bind:appTitle="appTitle"></app-header>
     
     <main>
-      <ninjas v-bind:ninjas="listOfPeople" v-bind:header="header" v-on:changeHeader="updateHeader($event)"></ninjas>
+
+      <ninjas 
+        v-bind:header="listOfPeopleHeader"
+        v-bind:ninjas="listOfPeople"
+        v-on:changeHeader="updateAppHeader($event)">
+      </ninjas>
+
       <hr>
-      <ninjas v-bind:ninjas="listOfPeople" v-bind:header="header" v-on:changeHeader="updateHeader($event)"></ninjas>
+
+      <ninjas 
+        v-bind:header="listOfPeopleHeader"
+        v-bind:ninjas="listOfPeople"
+        v-on:changeHeader="updateAppHeader($event)">
+      </ninjas>
+
     </main>
-    
-    <app-footer></app-footer>
+
+    <app-footer v-bind:appTitle="appTitle"></app-footer>
 
   </div>
 </template>
@@ -23,6 +35,8 @@ export default {
   },
   data() {
     return {
+      appTitle: 'Vue App',
+      listOfPeopleHeader: "Ninjas",
       listOfPeople: [
                 {name: 'Ryu', speciality: 'Vue Components', show: false},
                 {name: 'Crystal', speciality: 'HTML Wizardry', show: false},
@@ -30,13 +44,12 @@ export default {
                 {name: 'Tango', speciality: 'Conditionals', show: false},
                 {name: 'Kami', speciality: 'Webpack', show: false},
                 {name: 'Yoshi', speciality: 'Data Diggin', show: false}
-            ],
-      header: "Ninjas"
+            ]
     }
   },
   methods: {
-    updateHeader: function(newHeader) {
-      this.header = newHeader;
+    updateAppHeader: function(header) {
+      this.listOfPeopleHeader = header;
     }
   }
 }
