@@ -1,96 +1,51 @@
 <template>
   <div id="app">
     
-    <app-header v-bind:appTitle="appTitle"></app-header>
-    
-    <main>
+    <form-helper>
 
-      <ninjas 
-        v-bind:header="listOfPeopleHeader"
-        v-bind:ninjas="listOfPeople"
-        v-on:changeHeader="updateAppHeader($event)">
-      </ninjas>
+      <div slot="form-header">
+        <h3>This is the title of a form</h3>
+        <p>This is some info about the form</p>
+      </div>
 
-      <hr>
+      <div slot="form-fields">
+        <input type="text" placeholder="name" required />
+        <input type="password" placeholder="password" required />
+      </div>
 
-      <ninjas 
-        v-bind:header="listOfPeopleHeader"
-        v-bind:ninjas="listOfPeople"
-        v-on:changeHeader="updateAppHeader($event)">
-      </ninjas>
+      <div slot="form-controls">
+        <button v-on:click="handleSubmit">Submit</button>
+      </div>
 
-    </main>
-
-    <app-footer v-bind:appTitle="appTitle"></app-footer>
+    </form-helper>
 
   </div>
 </template>
 
 <script>
-import Ninjas from './components/Ninjas.vue';
+import FormHelper from './components/FormHelper.vue';
 
 export default {
   components: {
-    'ninjas': Ninjas
-  },
+    'form-helper': FormHelper
+    },
   data() {
-    return {
-      appTitle: 'Vue App',
-      listOfPeopleHeader: "Ninjas",
-      listOfPeople: [
-                {name: 'Ryu', speciality: 'Vue Components', show: false},
-                {name: 'Crystal', speciality: 'HTML Wizardry', show: false},
-                {name: 'Hitoshi', speciality: 'Click Events', show: false},
-                {name: 'Tango', speciality: 'Conditionals', show: false},
-                {name: 'Kami', speciality: 'Webpack', show: false},
-                {name: 'Yoshi', speciality: 'Data Diggin', show: false}
-            ]
-    }
+    
   },
   methods: {
-    updateAppHeader: function(header) {
-      this.listOfPeopleHeader = header;
+    handleSubmit: function() {
+      
     }
-  },
-  beforeCreate() {
-    alert('beforeCreate')
-  },
-  created() {
-    alert('created')
-  },
-  beforeMount() {
-    alert('beforeMount')
-  },
-  mounted() {
-    alert('mounted')
-  },
-  beforeUpdate() {
-    alert('beforeCreate')
-  },
-  updated() {
-    alert('beforeCreate')
-  },
+  }
   
 }
 </script>
 
 <style>
-
   * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
   }
-
-  #app {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    min-height: 100vh;
-  }
-
-  #app > main {
-    flex-grow: 1;
-  }
-
+ 
 </style>
