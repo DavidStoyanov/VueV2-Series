@@ -1,43 +1,41 @@
 <template>
   <div id="app">
-    
-    <form-helper>
 
-      <div slot="form-header">
-        <h3>This is the title of a form</h3>
-        <p>This is some info about the form</p>
-      </div>
+    <keep-alive>
+      <component v-bind:is="component"></component>
+    </keep-alive>
 
-      <div slot="form-fields">
-        <input type="text" placeholder="name" required />
-        <input type="password" placeholder="password" required />
-      </div>
-
-      <div slot="form-controls">
-        <button v-on:click="handleSubmit">Submit</button>
-      </div>
-
-    </form-helper>
+    <button v-on:click="switchFrom()">Switch Form</button>
 
   </div>
 </template>
 
 <script>
-import FormHelper from './components/FormHelper.vue';
+import FormOne from './components/FormOne.vue';
+import FormTwo from './components/FormTwo.vue';
 
 export default {
   components: {
-    'form-helper': FormHelper
-    },
+    'form-one': FormOne,
+    'form-two': FormTwo
+  },
   data() {
-    
+    return {
+      component: "form-one"
+    }
   },
   methods: {
     handleSubmit: function() {
       
+    },
+    switchFrom: function() {
+      this.component = this.component === "form-one"
+        ? "form-two" : "form-one"
     }
+  },
+  computed: {
+    
   }
-  
 }
 </script>
 
@@ -47,5 +45,20 @@ export default {
     margin: 0;
     box-sizing: border-box;
   }
- 
+
+  #app {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #app > * {
+    display: block;
+    width: 100%;
+  }
+
+  button {
+    max-width: 10rem;
+    align-self: center;
+  }
 </style>
