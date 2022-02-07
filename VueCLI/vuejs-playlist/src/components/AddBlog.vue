@@ -7,6 +7,20 @@
       <input v-model.lazy="blog.title" type="text" required>
       <label for="">Blog Content:</label>
       <textarea v-model.lazy="blog.content" name="" id="" cols="30" rows="10"></textarea>
+      <div id="check_boxes">
+        <div>
+          <label for="">Addon 1</label>
+          <input type="checkbox" value="addon1" v-model="blog.addons">
+        </div>
+        <div>
+          <label for="">Addon 2</label>
+          <input type="checkbox" value="addon2" v-model="blog.addons">
+        </div>
+        <div>
+          <label for="">Addon 3</label>
+          <input type="checkbox" value="addon3" v-model="blog.addons">
+        </div>
+      </div>
     </form>
 
     <div id="preview">
@@ -14,6 +28,7 @@
       <p>Blog title: {{ blog.title }}</p>
       <p>Blog content:</p>
       <p>{{ blog.content }}</p>
+      <p>Addons: {{ addonsToString }}</p>
     </div>
 
   </div>
@@ -26,7 +41,8 @@ export default {
     return {
       blog: {
         title: "",
-        content: ""
+        content: "",
+        addons: []
       }
     }
   },
@@ -34,16 +50,27 @@ export default {
     
   },
   computed: {
+    addonsToString() {
+      // another approach is v-for directive using it with <ul></ul> 
+      // return this.blog.addons.join(", ");
 
+      // return in case of 0 addons
+      if (this.blog.addons.length == 0)  return "";
+
+      // Always keep the sequence of addons by number
+      const addons = ['addon1', 'addon2', 'addon3'];
+      return addons.filter(x => this.blog.addons.includes(x))
+                      .reduce((a, b) => a + ", " + b);
+    }
   }
 };
 </script>
 
 <style scoped>
-#add-blog *{
+#add_blog *{
     box-sizing: border-box;
 }
-#add-blog{
+#add_blog{
     margin: 20px auto;
     max-width: 500px;
 }
@@ -64,4 +91,22 @@ input[type="text"], textarea{
 h3{
     margin-top: 10px;
 }
+
+#check_boxes {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+#check_boxes > div {
+
+}
+#check_boxes > div > label,
+#check_boxes > div > label {
+  display: inline-block;
+}
+#check_boxes > div > label {
+  margin-right: 0.3rem;
+}
+
+
 </style>
